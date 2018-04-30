@@ -226,7 +226,7 @@ class Premailer(object):
             if rule.type == rule.MEDIA_RULE:
 
                 # skip support for support tag as it is not supported in the cssutils package
-                if '@support' in rule.cssTest:
+                if '@support' in rule.cssText:
                     continue
 
                 leftover.append(rule)
