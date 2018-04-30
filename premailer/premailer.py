@@ -224,6 +224,11 @@ class Premailer(object):
         for rule in sheet:
             # handle media rule
             if rule.type == rule.MEDIA_RULE:
+
+                # skip support for support tag as it is not supported in the cssutils package
+                if '@support' in rule.cssTest:
+                    continue
+
                 leftover.append(rule)
                 continue
             # only proceed for things we recognize
