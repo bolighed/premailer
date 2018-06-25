@@ -224,7 +224,11 @@ class Premailer(object):
         for rule in sheet:
 
             # skip these rules
-            BLACKLIST_RULES = ('@support', '@-webkit-keyframes', '@keyframes')
+            BLACKLIST_RULES = ('@support',
+                               '@-webkit-keyframes',
+                               '@keyframes',
+                               '@-moz-document',
+                               )
             blacklist = False 
             for blacklisted_rule in BLACKLIST_RULES:
                 if blacklisted_rule in rule.cssText:
