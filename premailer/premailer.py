@@ -222,12 +222,19 @@ class Premailer(object):
             validate=not self.disable_validation
         )
         for rule in sheet:
+
+            # skip these rules
+            BLACKLIST_RULES = ('@support', '@-webkit-keyframes', '@keyframes')
+            blacklist = False 
+            for blacklisted_rule in BACKLIST_RULES:
+                if blacklisted_rule in rule.cssText:
+                    blacklist = True
+            if blacklist:
+                continue
+
             # handle media rule
             if rule.type == rule.MEDIA_RULE:
 
-                # skip support for support tag as it is not supported in the cssutils package
-                if '@support' in rule.cssText:
-                    continue
 
                 leftover.append(rule)
                 continue
