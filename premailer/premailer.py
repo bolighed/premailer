@@ -226,7 +226,7 @@ class Premailer(object):
             # skip these rules
             BLACKLIST_RULES = ('@support', '@-webkit-keyframes', '@keyframes')
             blacklist = False 
-            for blacklisted_rule in BACKLIST_RULES:
+            for blacklisted_rule in BLACKLIST_RULES:
                 if blacklisted_rule in rule.cssText:
                     blacklist = True
             if blacklist:
