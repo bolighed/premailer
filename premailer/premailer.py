@@ -224,10 +224,10 @@ class Premailer(object):
         for rule in sheet:
 
             # skip these rules
-            BLACKLIST_RULES = ('@support',
-                               '@-webkit-keyframes',
-                               '@keyframes',
-                               '@-moz-document',
+            BLACKLIST_RULES = ('@supports',
+                               ##'@-webkit-keyframes',
+                               ##'@keyframes',
+                               ##'@-moz-document',
                                )
             blacklist = False 
             for blacklisted_rule in BLACKLIST_RULES:
@@ -238,10 +238,9 @@ class Premailer(object):
 
             # handle media rule
             if rule.type == rule.MEDIA_RULE:
-
-
                 leftover.append(rule)
                 continue
+
             # only proceed for things we recognize
             if rule.type != rule.STYLE_RULE:
                 continue
