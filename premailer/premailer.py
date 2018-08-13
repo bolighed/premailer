@@ -229,8 +229,10 @@ class Premailer(object):
                                ##'@keyframes',
                                ##'@-moz-document',
                                )
-            blacklist = False 
+            blacklist = False
             for blacklisted_rule in BLACKLIST_RULES:
+                if rule is None or rule.cssText is None:
+                    continue
                 if blacklisted_rule in rule.cssText:
                     blacklist = True
             if blacklist:
